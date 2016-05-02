@@ -1,0 +1,7 @@
+base   fkslinter
+author Michal Červňák
+email  miso@fykos.cz
+date   2016-05-02
+name   fkslinter
+desc   Plugin for no break whitespace 
+url    https://github.com/fykosak/dokuwiki-plugin-fkslinter.git
