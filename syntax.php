@@ -11,9 +11,7 @@ if(!defined('DOKU_PLUGIN')){
     define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
 }
 
-class syntax_plugin_fkslinter extends DokuWiki_Syntax_Plugin {
-
-   
+class syntax_plugin_fksvlna extends DokuWiki_Syntax_Plugin {
 
     public function getType() {
         return 'substition';
@@ -32,26 +30,24 @@ class syntax_plugin_fkslinter extends DokuWiki_Syntax_Plugin {
     }
 
     public function connectTo($mode) {
-        $this->Lexer->addSpecialPattern('~',$mode,'plugin_fkslinter');
+        $this->Lexer->addSpecialPattern('~',$mode,'plugin_fksvlna');
     }
 
     /**
      * Handle the match
      */
     public function handle($match,$state) {
-       
+        return $state;
     }
 
-    public function render($mode,Doku_Renderer &$renderer,$data) {
-       
-
+    public function render($mode,Doku_Renderer &$renderer,$state) {
         if($mode == 'xhtml'){
-          
-                $renderer->doc.= '&nbsp;';
-               
             
+            if($state == DOKU_LEXER_SPECIAL){
+                    $renderer->doc.= '&nbsp;';
+            }
+        
         }
-
         return false;
     }
 
