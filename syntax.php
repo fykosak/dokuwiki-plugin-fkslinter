@@ -22,11 +22,11 @@ class syntax_plugin_fksvlna extends DokuWiki_Syntax_Plugin {
         $this->Lexer->addSpecialPattern('~', $mode, 'plugin_fksvlna');
     }
 
-    public function handle($match, $state) {
+    public function handle($match, $state, $pos, Doku_Handler $handler) {
         return $state;
     }
 
-    public function render($mode, Doku_Renderer &$renderer, $state) {
+    public function render($mode, Doku_Renderer $renderer, $state) {
         if ($mode == 'xhtml') {
             if ($state == DOKU_LEXER_SPECIAL) {
                 $renderer->doc .= '&nbsp;';
